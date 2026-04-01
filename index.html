@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="calculator">
+    <div class="display-container">
+      <div class="history" id="history"></div>
+      <div class="expression" id="expression"></div>
+      <div class="display" id="display">0</div>
+    </div>
+    <div class="mode-toggle">
+      <button class="mode-btn active" id="btn-deg" onclick="setAngleMode('deg')">DEG</button>
+      <button class="mode-btn" id="btn-rad" onclick="setAngleMode('rad')">RAD</button>
+      <button class="memory-indicator" id="memory-indicator" title="Memory stored">M</button>
+    </div>
+    <div class="buttons">
+      <!-- Row 1: Scientific -->
+      <button class="btn sci" onclick="inputFunc('sin(')">sin</button>
+      <button class="btn sci" onclick="inputFunc('cos(')">cos</button>
+      <button class="btn sci" onclick="inputFunc('tan(')">tan</button>
+      <button class="btn sci" onclick="inputFunc('log(')">log</button>
+      <button class="btn sci" onclick="inputFunc('ln(')">ln</button>
+
+      <!-- Row 2: Scientific -->
+      <button class="btn sci" onclick="inputFunc('sqrt(')"><span class="sqrt-symbol">&radic;</span></button>
+      <button class="btn sci" onclick="inputOperator('^')">x<sup>y</sup></button>
+      <button class="btn sci" onclick="inputConst('pi')"><span class="pi-symbol">&pi;</span></button>
+      <button class="btn sci" onclick="inputConst('e')">e</button>
+      <button class="btn sci" onclick="inputFunc('fact(')">n!</button>
+
+      <!-- Row 3: Memory + Parens -->
+      <button class="btn mem" onclick="memoryClear()">MC</button>
+      <button class="btn mem" onclick="memoryRecall()">MR</button>
+      <button class="btn mem" onclick="memoryAdd()">M+</button>
+      <button class="btn paren" onclick="inputChar('(')">(</button>
+      <button class="btn paren" onclick="inputChar(')')">)</button>
+
+      <!-- Row 4: Numbers + Operators -->
+      <button class="btn num" onclick="inputChar('7')">7</button>
+      <button class="btn num" onclick="inputChar('8')">8</button>
+      <button class="btn num" onclick="inputChar('9')">9</button>
+      <button class="btn op" onclick="inputOperator('/')">&divide;</button>
+      <button class="btn action" onclick="clearAll()">AC</button>
+
+      <!-- Row 5 -->
+      <button class="btn num" onclick="inputChar('4')">4</button>
+      <button class="btn num" onclick="inputChar('5')">5</button>
+      <button class="btn num" onclick="inputChar('6')">6</button>
+      <button class="btn op" onclick="inputOperator('*')">&times;</button>
+      <button class="btn action" onclick="deleteLast()">DEL</button>
+
+      <!-- Row 6 -->
+      <button class="btn num" onclick="inputChar('1')">1</button>
+      <button class="btn num" onclick="inputChar('2')">2</button>
+      <button class="btn num" onclick="inputChar('3')">3</button>
+      <button class="btn op" onclick="inputOperator('-')">&minus;</button>
+      <button class="btn action" onclick="toggleSign()">&plusmn;</button>
+
+      <!-- Row 7 -->
+      <button class="btn num" onclick="inputChar('0')">0</button>
+      <button class="btn num" onclick="inputChar('.')">.</button>
+      <button class="btn action" onclick="inputPercent()">%</button>
+      <button class="btn op" onclick="inputOperator('+')">+</button>
+      <button class="btn equals" onclick="calculate()">=</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
