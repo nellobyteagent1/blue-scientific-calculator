@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blue scientific calculator with safe expression parsing, keyboard support, and degree/radian modes.">
+  <title>Blue Scientific Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="calculator" aria-label="Scientific calculator">
+      <div class="display-panel">
+        <div class="display-meta">
+          <span class="mode-badge" id="angle-mode-label">DEG</span>
+          <span class="keyboard-hint">Keyboard enabled</span>
+        </div>
+        <div class="history" id="history" aria-live="polite"></div>
+        <div class="expression" id="expression" aria-live="polite"></div>
+        <div class="result" id="result" aria-live="assertive">0</div>
+      </div>
+
+      <div class="toolbar" role="group" aria-label="Angle mode">
+        <button class="toggle-btn active" type="button" data-angle-mode="DEG" aria-pressed="true">DEG</button>
+        <button class="toggle-btn" type="button" data-angle-mode="RAD" aria-pressed="false">RAD</button>
+      </div>
+
+      <div class="button-grid" id="button-grid">
+        <!-- Row 1 -->
+        <button class="btn action" type="button" data-action="clear">AC</button>
+        <button class="btn action" type="button" data-action="delete">DEL</button>
+        <button class="btn muted" type="button" data-value="(">(</button>
+        <button class="btn muted" type="button" data-value=")">)</button>
+        <button class="btn operator" type="button" data-operator="/">&divide;</button>
+
+        <!-- Row 2: Scientific -->
+        <button class="btn sci" type="button" data-function="sin">sin</button>
+        <button class="btn sci" type="button" data-function="cos">cos</button>
+        <button class="btn sci" type="button" data-function="tan">tan</button>
+        <button class="btn sci" type="button" data-function="log">log</button>
+        <button class="btn sci" type="button" data-function="ln">ln</button>
+
+        <!-- Row 3 -->
+        <button class="btn sci" type="button" data-function="sqrt">&radic;</button>
+        <button class="btn sci" type="button" data-operator="^">x<sup>y</sup></button>
+        <button class="btn sci" type="button" data-constant="pi">&pi;</button>
+        <button class="btn sci" type="button" data-constant="e">e</button>
+        <button class="btn sci" type="button" data-action="percent">%</button>
+
+        <!-- Row 4 -->
+        <button class="btn num" type="button" data-value="7">7</button>
+        <button class="btn num" type="button" data-value="8">8</button>
+        <button class="btn num" type="button" data-value="9">9</button>
+        <button class="btn operator" type="button" data-operator="*">&times;</button>
+        <button class="btn operator" type="button" data-operator="-">&minus;</button>
+
+        <!-- Row 5 -->
+        <button class="btn num" type="button" data-value="4">4</button>
+        <button class="btn num" type="button" data-value="5">5</button>
+        <button class="btn num" type="button" data-value="6">6</button>
+        <button class="btn operator" type="button" data-operator="+">+</button>
+        <button class="btn equals tall" type="button" data-action="calculate">=</button>
+
+        <!-- Row 6 -->
+        <button class="btn num" type="button" data-value="1">1</button>
+        <button class="btn num" type="button" data-value="2">2</button>
+        <button class="btn num" type="button" data-value="3">3</button>
+        <button class="btn muted" type="button" data-action="negate">+/&minus;</button>
+
+        <!-- Row 7 -->
+        <button class="btn num zero" type="button" data-value="0">0</button>
+        <button class="btn num" type="button" data-value=".">.</button>
+      </div>
+
+      <p class="footer-note">Enter&nbsp;=&nbsp;evaluate &middot; Backspace&nbsp;=&nbsp;delete &middot; Esc&nbsp;=&nbsp;clear &middot; ^&nbsp;power &middot; p&nbsp;=&nbsp;&pi; &middot; r&nbsp;=&nbsp;&radic;</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
